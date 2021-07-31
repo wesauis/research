@@ -4,9 +4,13 @@
   "description": "back-end demo app for Apollo's lift-off course",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index"
+    "start": "node src/index",
+    "dev": "nodemon src/index"
   },
-  "dependencies": {},
+  "dependencies": {
+    "apollo-server": "^3.1.1",
+    "graphql": "^15.5.1"
+  },
   "devDependencies": {
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.4"
