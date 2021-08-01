@@ -135,3 +135,41 @@ const mocks = {
 
 const server = new ApolloServer({ typeDefs, mocks });
 ```
+
+### Client
+
+the apollo client even caches the request, what is insanelly cool (and usefull)
+
+to instanciate the client use
+
+```js
+const client = ApolloClient({
+  uri: 'http://localhost:4000', // back-end uri | required
+  cache: new InMemoryCache(),   // cache        | required
+})
+```
+
+into a react app is possible to provide the client to the hole app by wrapping the app into a `ApolloProvider` and setting `client` to your `ApolloClient` instance
+
+### Quering
+
+a good pratice is to store the query into a constant
+
+```js
+const HELLO = gql`
+  query {
+    hello
+  }
+`;
+```
+
+`useQuery` React hook is the primary API for executing queries in an Apollo application
+
+we run a query within a React component by calling `useQuery` and passing it our GraphQL query string
+
+it will return an object with
+
+- `loading: boolean` true if still loading
+- `error?: Error` not null if something went wrong
+- `data?: any` not null if all went right
+  

@@ -4,7 +4,7 @@ const typeDefs = require("./schema.js");
 
 const mocks = {
   Query: () => ({
-    tracksForHome: () => [...new Array(6)]
+    tracksForHome: () => [...new Array(6)],
   }),
   Track: () => ({
     title: () => "Astro Kitty, Space Explorer",
@@ -15,7 +15,7 @@ const mocks = {
   Author: () => ({
     name: "Grumpy Cat",
     photo: "https://res.cloudinary.com/dety84pbu/image/upload/v1606816219/kitty-veyron-sm_mctf3c.jpg",
-  })
+  }),
 };
 
 const server = new ApolloServer({ typeDefs, mocks });
