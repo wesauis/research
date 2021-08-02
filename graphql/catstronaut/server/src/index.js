@@ -1,8 +1,8 @@
 const { ApolloServer } = require("apollo-server");
-const TrackAPI = require("./datasources/track-api.js");
+const TrackAPI = require("./datasources/track-api");
 
-const typeDefs = require("./schema.js");
-const resolvers = require("./resolvers.js");
+const typeDefs = require("./schema");
+const resolvers = require("./resolvers");
 
 const dataSources = () => ({
   trackAPI: new TrackAPI(),

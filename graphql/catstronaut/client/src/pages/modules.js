@@ -1,7 +1,7 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import { Layout, QueryResult } from "../components";
-import ModuleDetail from "../components/module-detail.js";
+import ModuleDetail from "../components/module-detail";
 
 /**
  * GET_MODULE_AND_PARENT_TRACK gql query to retrieve a specific module and its parent track,
