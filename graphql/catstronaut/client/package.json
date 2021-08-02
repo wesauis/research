@@ -1,8 +1,18 @@
 {
   "name": "catstronauts-client",
+  "main": "src/index.js",
   "version": "1.0.0",
+  "description": "apollo odyssey lift off course | catstronaut client by @wesauis",
+  "homepage": "https://odyssey.apollographql.com/",
   "private": true,
-  "description": "front-end demo app for Apollo's lift-off course",
+  "author": "Raphael Terrier @R4ph-t",
+  "license": "MIT",
+  "scripts": {
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@apollo/client": "^3.4.1",
     "@apollo/space-kit": "^9.3.1",
@@ -20,11 +30,11 @@
     "react-player": "^2.6.0",
     "react-scripts": "^4.0.3"
   },
-  "scripts": {
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "apollo": "^2.30.2"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,14 +50,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "apollo": "^2.30.2"
-  },
-  "main": "src/index.js",
-  "author": "Raphael Terrier @R4ph-t",
-  "license": "MIT"
+  }
 }
