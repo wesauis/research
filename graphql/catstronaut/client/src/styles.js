@@ -26,7 +26,7 @@ export const colors = {
 const GlobalStyles = () => (
   <Global
     styles={{
-      [["html", "body"]]: {
+      [["html"]]: {
         height: "100%",
       },
       body: {
