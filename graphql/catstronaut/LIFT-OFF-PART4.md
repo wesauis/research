@@ -14,6 +14,7 @@ type Mutation {
 ```
 
 naming
+
 > We recommend starting with a verb that describes the specific action of our update operation (such as add, delete, or create), followed by whatever data the mutation acts on. Because mutations typically modify a specific object, they often require arguments. We can add arguments as needed, following the same SDL syntax. The return type of the mutation comes after the colon.
 
 > For the mutation response, we should return the data that the mutation updated, so that our client can update its UI without having to run a followup query
@@ -45,3 +46,18 @@ type AssignMissionResponse {
   Mission: Mission
 }
 ```
+
+## useMutation
+
+when running a mutation we will need to use the useMutation hook
+
+this method retuns an array containing
+
+- `0`: the function that triggers the mutation
+- `1`: the object that we already know with the `loading`, `error` and `data` fields
+
+## ✨ Magic Update ✨
+
+if we do a mutation and get back the id of the type plus the updated field(s) apollo will update the cache with this new data and this will cause a update on the UI, even if we haven't added any code for this to happen
+
+the cache regenerates and our UI regenerates together
