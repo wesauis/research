@@ -1,12 +1,12 @@
 ## Resolvers
 
-a resolver transforms data into the shape the query requires
+A resolver transforms data into the shape the query requires
 
-it is a funcion that is responsable to populate the data for a single field in our schema
+It is a funcion that is responsable to populate the data for a single field in our schema
 
-the resolver must have the same name as the field that it is populating data for, like in our schema we have `tracksForHome: [Track!]!`, our resolver must have the name `tracksForHome` and return a list, empty or with non null tracks inside
+The resolver must have the same name as the field that it is populating data for, like in our schema we have `tracksForHome: [Track!]!`, our resolver must have the name `tracksForHome` and return a list, empty or with non null tracks inside
 
-a resolver can have up to 4 optional parameters:
+A resolver can have up to 4 optional parameters:
 
 - **parent**:
 

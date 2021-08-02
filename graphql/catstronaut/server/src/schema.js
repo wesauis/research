@@ -1,10 +1,10 @@
-const { gql } = require('apollo-server')
+const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   # endpoints (sort of)
   type Query {
     "Get tracks array for homepage grid"
-    tracksForHome: [Track!]!
+    tracks: [Track!]!
     "Fetch a specific track, provided a track's ID"
     track(id: ID!): Track
     "Fetch a specific module, provided a module's ID"
@@ -21,9 +21,9 @@ const typeDefs = gql`
     id: ID!
     "The track's title"
     title: String!
-    "The track's complete description, can be in Markdown format"
+    "The track's complete description, can be in markdown format"
     description: String
-    "The track's main illustration to display in track card or track page detail"
+    "The track's illustration to display in track card or track page detail"
     thumbnail: String
     "The track's approximate length to complete, in minutes"
     length: Int
@@ -31,12 +31,12 @@ const typeDefs = gql`
     modulesCount: Int
     "The number of times a track has been viewed"
     numberOfViews: Int
-    "The track's main author"
+    "The track's main Author"
     author: Author!
     "The track's complete array of Modules"
     modules: [Module!]!
   }
-  
+
   "Author of a complete Track"
   type Author {
     id: ID!
@@ -53,9 +53,9 @@ const typeDefs = gql`
     title: String!
     "The Module's length in minutes"
     length: Int
-    "The Module's anexed video url"
+    "The module's video url, for video-based modules"
     videoUrl: String
-    "The Module's content (markdown enabled)"
+    "The module's text-based description, can be in markdown format. In case of a video, it will be the enriched transcript"
     content: String
   }
 
@@ -69,6 +69,6 @@ const typeDefs = gql`
     "Newly updated track after a successful mutation"
     track: Track
   }
-`
+`;
 
-module.exports = typeDefs
+module.exports = typeDefs;

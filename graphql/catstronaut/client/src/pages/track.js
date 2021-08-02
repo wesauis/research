@@ -3,7 +3,7 @@ import { gql, useQuery } from "@apollo/client";
 import { Layout, QueryResult } from "../components";
 import TrackDetail from "../components/track-detail.js";
 
-/** TRACKS gql query to retreive all tracks */
+/** GET_TRACK gql query to retrieve a specific track by its ID */
 const GET_TRACK = gql`
   query getTrack($trackId: ID!) {
     track(id: $trackId) {

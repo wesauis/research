@@ -110,11 +110,11 @@ module.exports = typeDefs
 
 ### Mocked Data
 
-while our app is been developed some parts may not be implemented yet, a way to allow the front-end to be developed widout needing to end the back-end is by using mocked data
+While our app is been developed some parts may not be implemented yet, a way to allow the front-end to be developed widout needing to end the back-end is by using mocked data
 
-doing this with apollo is extremely easy, just set `mocks` to `true` when creating the `ApolloServer`
+Doing this with apollo is extremely easy, just set `mocks` to `true` when creating the `ApolloServer`
 
-if you want more controll over the mocked data is possible to supply our own mocks, to do that we just need to supply a object with the types as functions that return a object with each property that we want to customize set to a function that returns the desidered value
+If you want more controll over the mocked data is possible to supply our own mocks, to do that we just need to supply a object with the types as functions that return a object with each property that we want to customize set to a function that returns the desidered value
 
 ```js
 const mocks = {
@@ -138,9 +138,9 @@ const server = new ApolloServer({ typeDefs, mocks });
 
 ### Client
 
-the apollo client even caches the request, what is insanelly cool (and usefull)
+The apollo client even caches the request, what is insanelly cool (and usefull)
 
-to instanciate the client use
+To instanciate the client use
 
 ```js
 const client = ApolloClient({
@@ -149,11 +149,11 @@ const client = ApolloClient({
 })
 ```
 
-into a react app is possible to provide the client to the hole app by wrapping the app into a `ApolloProvider` and setting `client` to your `ApolloClient` instance
+Into a react app is possible to provide the client to the hole app by wrapping the app into a `ApolloProvider` and setting `client` to your `ApolloClient` instance
 
 ### Quering
 
-a good pratice is to store the query into a constant
+A good pratice is to store the query into a constant
 
 ```js
 const HELLO = gql`
@@ -165,9 +165,9 @@ const HELLO = gql`
 
 `useQuery` React hook is the primary API for executing queries in an Apollo application
 
-we run a query within a React component by calling `useQuery` and passing it our GraphQL query string
+We run a query within a React component by calling `useQuery` and passing it our GraphQL query string
 
-it will return an object with
+It will return an object with
 
 - `loading: boolean` true if still loading
 - `error?: Error` not null if something went wrong
