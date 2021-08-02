@@ -8,6 +8,10 @@ const resolvers = {
     track(_, { id }, { dataSources }) {
       return dataSources.trackAPI.getTrack(id);
     },
+    // get a single module by ID
+    module(_, { id }, { dataSources }) {
+      return dataSources.trackAPI.getModule(id);
+    },
   },
   Mutation: {
     // increments a track's numberOfViews property
@@ -21,13 +25,13 @@ const resolvers = {
           message: `Successfully incremented number of views for track ${id}`,
           track,
         };
-      } catch(err) {
+      } catch (err) {
         return {
           code: err.extensions.response.status,
           success: false,
           message: err.extensions.response.body,
           track: null,
-        }
+        };
       }
     },
   },

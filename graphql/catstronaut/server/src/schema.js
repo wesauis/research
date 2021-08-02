@@ -7,6 +7,8 @@ const typeDefs = gql`
     tracksForHome: [Track!]!
     "Fetch a specific track, provided a track's ID"
     track(id: ID!): Track
+    "Fetch a specific module, provided a module's ID"
+    module(id: ID!): Module
   }
 
   # write operations
@@ -51,6 +53,10 @@ const typeDefs = gql`
     title: String!
     "The Module's length in minutes"
     length: Int
+    "The Module's anexed video url"
+    videoUrl: String
+    "The Module's content (markdown enabled)"
+    content: String
   }
 
   type IncrementTrackViewsResponse {
