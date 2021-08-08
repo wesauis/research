@@ -12,11 +12,11 @@ function ENV(envvar, type = String, keep = (_) => _) {
   return keep(envval) ? envval : null;
 }
 
-/** negates the result of `func`*/
+/** negates the result of `fn`*/
 const not =
-  (func) =>
+  (fn) =>
   (...args) =>
-    !func(...args);
+    !fn(...args);
 
 module.exports = {
   PORT: ENV("PORT", Number, not(isNaN)) || 4000,

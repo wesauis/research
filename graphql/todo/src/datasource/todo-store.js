@@ -1,22 +1,9 @@
-const { ApolloError } = require("apollo-server");
-const { randomBytes } = require("crypto");
-
-const createId = () => randomBytes(16).toString("hex");
-
-const checkHasFound = (todo) => {
-  if (!todo) {
-    throw new ApolloError("todo not found", "NOT_FOUND");
-  }
-
-  return todo;
-};
+const { NOT_FOUND, INVALID_SIZE } = require("../helper/error-codes.js");
+const { createId, throwError } = require("../helper/utils.js");
 
 const checkDescription = (description) => {
   if (description.length < 1 || description.length > 32) {
-    throw new ApolloError(
-      "description field must have between 1 and 32 characters",
-      "INVALID_DESCRIPTION_SIZE"
-    );
+    throwError(INVALID_SIZE, 'description must have a size between 1 and 32 chars')
   }
 };
 
@@ -45,7 +32,8 @@ class TodoStore {
 
   async updateTodo(todoId, { done, description }) {
     const index = TODOS.findIndex((todo) => todo.id === todoId);
-    checkHasFound(index !== -1);
+
+    if (index === -1) throwError(NOT_FOUND) 
 
     if (done != null) {
       TODOS[index].done = done;
@@ -62,7 +50,7 @@ class TodoStore {
   async deleteTodo(todoId) {
     const index = TODOS.findIndex((todo) => todo.id === todoId);
 
-    checkHasFound(index !== -1)
+    if (index === -1) throwError(NOT_FOUND) 
 
     TODOS.splice(index, 1);
     return true;
