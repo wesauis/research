@@ -67,6 +67,7 @@ export default function App() {
             data={tasks}
             keyExtractor={(task) => task.id}
             renderItem={renderTask}
+            ListFooterComponent={<View style={styles.emptyItem} />}
           />
         </View>
       </View>
@@ -75,18 +76,25 @@ export default function App() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.footer}
       >
-        <TextInput
-          style={styles.input}
-          placeholder="What do you need to do?"
-          value={newTask}
-          onChangeText={(text) => setNewTask(text)}
-          onSubmitEditing={addNewTask}
-        />
-        <TouchableOpacity onPress={addNewTask}>
-          <View style={styles.addView}>
-            <Text style={styles.addText}>+</Text>
-          </View>
-        </TouchableOpacity>
+        <LinearGradient
+          colors={["transparent", "#e8eaed"]}
+          style={styles.footerGradient}
+          start={{ x: 0.5, y: 0.0 }}
+          end={{ x: 0.5, y: 0.25 }}
+        >
+          <TextInput
+            style={styles.input}
+            placeholder="What do you need to do?"
+            value={newTask}
+            onChangeText={(text) => setNewTask(text)}
+            onSubmitEditing={addNewTask}
+          />
+          <TouchableOpacity onPress={addNewTask}>
+            <View style={styles.addView}>
+              <Text style={styles.addText}>+</Text>
+            </View>
+          </TouchableOpacity>
+        </LinearGradient>
       </KeyboardAvoidingView>
     </View>
   );
@@ -109,9 +117,19 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 15 + 50,
   },
+  emptyItem: {
+    height: 15 + 50 + 10,
+  },
   footer: {
     position: "absolute",
-    bottom: 15,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: "100%",
+  },
+  footerGradient: {
+    paddingTop: 25,
+    paddingBottom: 15,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-around",
