@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
+  FlatList,
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
@@ -9,6 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import Task from "./components/Task.js";
 
 // remove outline on input elements
@@ -18,9 +20,17 @@ if (Platform.OS === "web") {
   document.head.append(style);
 }
 
+function createId() {
+  const timestamp = Date.now();
+  const random = Math.random();
+
+  const str = (n) => n.toString(36).substr(2);
+  return `${str(timestamp)}-${str(random)}`;
+}
+
 export default function App() {
   const [newTask, setNewTask] = useState();
-  const [tasks, setTasks] = useState(new Array(32).fill("abc"));
+  const [tasks, setTasks] = useState([]);
 
   function addNewTask() {
     if (!newTask || newTask.match(/^\s*$/)) {
@@ -28,7 +38,7 @@ export default function App() {
       return;
     }
 
-    setTasks([...tasks, newTask]);
+    setTasks([...tasks, { id: createId(), text: newTask }]);
     setNewTask("");
   }
 
@@ -38,6 +48,14 @@ export default function App() {
     setTasks(tasksCopy);
   }
 
+  function renderTask({ item: task }) {
+    return (
+      <TouchableOpacity onPress={() => completeTask(task.id)}>
+        <Task text={task.text} />
+      </TouchableOpacity>
+    );
+  }
+
   return (
     <View style={styles.body}>
       <StatusBar animated style="auto" />
@@ -45,11 +63,11 @@ export default function App() {
       <View style={styles.wrapper}>
         <Text style={styles.title}>Today's tasks</Text>
         <View style={styles.taskList}>
-          {tasks.map((task, id) => (
-            <TouchableOpacity key={id} onPress={() => completeTask(id)}>
-              <Task text={task} />
-            </TouchableOpacity>
-          ))}
+          <FlatList
+            data={tasks}
+            keyExtractor={(task) => task.id}
+            renderItem={renderTask}
+          />
         </View>
       </View>
 
