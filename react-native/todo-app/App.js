@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#e8eaed",
   },
   wrapper: {
-    paddingTop: 80,
+    paddingTop: 50,
     paddingHorizontal: 20,
   },
   title: {
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   },
   taskList: {
     marginTop: 30,
-    marginBottom: 15 + 50
+    marginBottom: 15 + 50,
   },
   footer: {
     position: "absolute",
@@ -106,12 +106,12 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderColor: "#c0c0c0",
     borderWidth: 1,
-    width: "100%",
+    width: "75%",
   },
   addView: {
     marginRight: 15,
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     backgroundColor: "#fff",
     borderRadius: 15,
     justifyContent: "center",
