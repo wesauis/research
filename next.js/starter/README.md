@@ -14,6 +14,7 @@ pnpx create-next-app nextjs-blog --use-npm --example "https://github.com/vercel/
 ```
 
 swapping npm with pnpm
+
 ```ps1
 cd nextjs-blog
 rm package-lock.json
@@ -26,6 +27,7 @@ pnpm i
 ```
 
 disabling telemetry
+
 ```bash
 pnpx next telemetry disable
 ```
@@ -36,3 +38,11 @@ pnpx next telemetry disable
 pnpm run dev
 ```
 
+<!--
+
+You should also update the following files:
+
+- public/images/profile.jpg with your photo (Recommended: 400px width/height).
+- const name = '[Your Name]' in components/layout.js with your name.
+- <p>[Your Self Introduction]</p> in pages/index.js with your self introduction.
+-->
