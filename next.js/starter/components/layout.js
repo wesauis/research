@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
@@ -17,14 +16,13 @@ export default function Layout({ children, profile, home = false }) {
           content="Learn how to build a personal website using Next.js"
         />
         <meta name="og:title" content={title} />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary_large_img" />
       </Head>
       <header className={styles.header}>
         {home ? (
           <>
             <a href={profile.html_url}>
-              <Image
-                priority
+              <img
                 src={profile.avatar_url}
                 className={utilStyles.borderCircle}
                 height={144}
@@ -38,7 +36,7 @@ export default function Layout({ children, profile, home = false }) {
           <>
             <Link href="/">
               <a>
-                <Image
+                <img
                   priority
                   src={profile.avatar_url}
                   className={utilStyles.borderCircle}
